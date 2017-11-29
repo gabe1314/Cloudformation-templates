@@ -7,33 +7,33 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "test.sigue.local"
+            "Value": "test.local"
           }
         ],
-        "DomainName": "test.sigue.local",
+        "DomainName": "test.local",
         "DomainNameServers": [
-          "10.65.54.40",
-          "10.65.54.41"
+          "10.65.54.1",
+          "10.65.54.2"
         ]
       }
     },
-    "dopta627eec3": {
+    "dopt####": {
       "Type": "AWS::EC2::DHCPOptions",
       "Properties": {
         "Tags": [
           {
             "Key": "Name",
-            "Value": "dev.sigue.local"
+            "Value": "dev.local"
           }
         ],
-        "DomainName": "dev.sigue.local",
+        "DomainName": "dev.local",
         "DomainNameServers": [
-          "10.65.52.40",
-          "10.65.52.41"
+          "10.65.52.1",
+          "10.65.52.2"
         ]
       }
     },
-    "dopt8def17e8": {
+    "dopt######": {
       "Type": "AWS::EC2::DHCPOptions",
       "Properties": {
         "Tags": [
@@ -44,28 +44,28 @@
         ],
         "DomainName": "sigue.local",
         "DomainNameServers": [
-          "10.1.100.29",
-          "10.1.100.26"
+          "10.0.0.1",
+          "10.1.0.2"
         ],
         "NtpServers": [
-          "10.1.100.29",
-          "10.1.100.26"
+          "10.0.0.1",
+          "10.1.0.2"
         ]
       }
     },
-    "dopt33482c54": {
+    "dopt33$$$$": {
       "Type": "AWS::EC2::DHCPOptions",
       "Properties": {
         "Tags": [
           {
             "Key": "Name",
-            "Value": "cmtmoney.com"
+            "Value": "AnotherDomain.com"
           }
         ],
-        "DomainName": "cmtmoney.com",
+        "DomainName": "AnotherDomain.com",
         "DomainNameServers": [
-          "10.65.66.160",
-          "10.129.62.60"
+          "10.6.6.1",
+          "10.1.6.1"
         ]
       }
     },
@@ -75,34 +75,34 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "sigue.local"
+            "Value": "AnotherDomain2.local"
           }
         ],
-        "DomainName": "sigue.local",
+        "DomainName": "AnotherDomain.local",
         "DomainNameServers": [
-          "10.1.100.29",
-          "10.1.100.26"
+          "10.1.1.1",
+          "10.1.1.2"
         ]
       }
     },
-    "dopt0be3ef6c": {
+    "dopt$$$$$": {
       "Type": "AWS::EC2::DHCPOptions",
       "Properties": {
         "Tags": [
           {
             "Key": "Name",
-            "Value": "test.sigue.local"
+            "Value": "test.local"
           }
         ],
-        "DomainName": "test.sigue.local",
+        "DomainName": "test.local",
         "DomainNameServers": [
-          "10.1.100.29",
-          "10.1.100.26",
-          "10.21.128.10"
+          "10.1.10.2",
+          "10.1.10.26",
+          "10.2.1.10"
         ]
       }
     },
-    "dopt3d25dc58": {
+    "dopt#######": {
       "Type": "AWS::EC2::DHCPOptions",
       "Properties": {
         "Tags": [
