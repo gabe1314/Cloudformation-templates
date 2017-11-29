@@ -1,0 +1,1938 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "sgAppSG": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Application Tier",
+        "VpcId": "vpc-d00d4fb5",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "AppSG"
+          }
+        ]
+      }
+    },
+    "sgConnectSG": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "launch-wizard-1 created 2015-09-28T12:24:55.887-07:00",
+        "VpcId": "vpc-d00d4fb5",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "ConnectSG"
+          },
+          {
+            "Key": "type",
+            "Value": "sg"
+          }
+        ]
+      }
+    },
+    "sgDBSG": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "DBSG",
+        "VpcId": "vpc-d00d4fb5",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "DBSG"
+          }
+        ]
+      }
+    },
+    "sgNATSG": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "NATSG",
+        "VpcId": "vpc-d00d4fb5",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "NATSG"
+          }
+        ]
+      }
+    },
+    "sgWebSG": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "WebSG",
+        "VpcId": "vpc-d00d4fb5",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "WebSG"
+          }
+        ]
+      }
+    },
+    "ingress1": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "81",
+        "ToPort": "81",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress2": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "81",
+        "ToPort": "81",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress3": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "SourceSecurityGroupId": {
+          "Ref": "sgDBSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress4": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress5": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "SourceSecurityGroupId": {
+          "Ref": "sgWebSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress6": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress7": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress8": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "190.146.128.6/32"
+      }
+    },
+    "ingress9": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "190.60.246.226/32"
+      }
+    },
+    "ingress10": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "50.79.151.100/32"
+      }
+    },
+    "ingress11": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "50.79.151.101/32"
+      }
+    },
+    "ingress12": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "50.79.151.97/32"
+      }
+    },
+    "ingress13": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "50.79.151.98/32"
+      }
+    },
+    "ingress14": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "50.79.151.99/32"
+      }
+    },
+    "ingress15": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "82",
+        "ToPort": "82",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress16": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "82",
+        "ToPort": "82",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress17": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8080",
+        "ToPort": "8080",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress18": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8080",
+        "ToPort": "8080",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress19": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3228",
+        "ToPort": "3228",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress20": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3228",
+        "ToPort": "3228",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress21": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "53",
+        "ToPort": "53",
+        "SourceSecurityGroupId": {
+          "Ref": "sgWebSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress22": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "389",
+        "ToPort": "389",
+        "SourceSecurityGroupId": {
+          "Ref": "sgWebSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress23": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "445",
+        "ToPort": "445",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress24": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "445",
+        "ToPort": "445",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress25": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "SourceSecurityGroupId": {
+          "Ref": "sgWebSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress26": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress27": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress28": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress29": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "199.108.196.254/32"
+      }
+    },
+    "ingress30": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "SourceSecurityGroupId": {
+          "Ref": "sgWebSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress31": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgWebSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress32": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress33": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress34": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress35": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1024",
+        "ToPort": "65535",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress36": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1024",
+        "ToPort": "65535",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress37": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress38": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "21",
+        "ToPort": "21",
+        "CidrIp": "85.17.68.234/32"
+      }
+    },
+    "ingress39": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "SourceSecurityGroupId": {
+          "Ref": "sgWebSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress40": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress41": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress42": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress43": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "75.23.178.131/32"
+      }
+    },
+    "ingress44": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "25",
+        "ToPort": "25",
+        "SourceSecurityGroupId": {
+          "Ref": "sgWebSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress45": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "25",
+        "ToPort": "25",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress46": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "25",
+        "ToPort": "25",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress47": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "135",
+        "ToPort": "135",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress48": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "135",
+        "ToPort": "135",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress49": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "53",
+        "ToPort": "53",
+        "SourceSecurityGroupId": {
+          "Ref": "sgWebSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress50": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress51": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8080",
+        "ToPort": "8080",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress52": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "0",
+        "ToPort": "-1",
+        "CidrIp": "75.23.178.131/32"
+      }
+    },
+    "ingress53": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "21",
+        "ToPort": "21",
+        "CidrIp": "85.17.68.234/32"
+      }
+    },
+    "ingress54": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress55": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress56": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress57": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "75.23.178.131/32"
+      }
+    },
+    "ingress58": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8082",
+        "ToPort": "8082",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress59": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8082",
+        "ToPort": "8082",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress60": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8082",
+        "ToPort": "8082",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress61": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3228",
+        "ToPort": "3228",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress62": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3228",
+        "ToPort": "3228",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress63": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress64": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress65": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress66": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "199.108.196.254/32"
+      }
+    },
+    "ingress67": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "24.151.57.68/32"
+      }
+    },
+    "ingress68": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "71.80.163.157/32"
+      }
+    },
+    "ingress69": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "75.23.178.131/32"
+      }
+    },
+    "ingress70": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "445",
+        "ToPort": "445",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress71": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress72": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress73": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress74": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "192.168.2.0/24"
+      }
+    },
+    "ingress75": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAppSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress76": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress77": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.1.96.0/19"
+      }
+    },
+    "ingress78": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.129.0.0/16"
+      }
+    },
+    "ingress79": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.64.0.0/19"
+      }
+    },
+    "ingress80": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.65.0.0/19"
+      }
+    },
+    "ingress81": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress82": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "172.20.101.0/24"
+      }
+    },
+    "ingress83": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "192.168.0.0/16"
+      }
+    },
+    "ingress84": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgDBSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress85": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "192.168.2.0/24"
+      }
+    },
+    "ingress86": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "135",
+        "ToPort": "135",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress87": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "135",
+        "ToPort": "135",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress88": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "53",
+        "ToPort": "53",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAppSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress89": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "53",
+        "ToPort": "53",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAppSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress90": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "10.129.0.0/16"
+      }
+    },
+    "ingress91": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "10.129.0.0/16"
+      }
+    },
+    "ingress92": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "445",
+        "ToPort": "445",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress93": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "445",
+        "ToPort": "445",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress94": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAppSG"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress95": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress96": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "10.129.0.0/16"
+      }
+    },
+    "ingress97": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress98": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "172.20.101.0/24"
+      }
+    },
+    "ingress99": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "192.168.0.0/16"
+      }
+    },
+    "ingress100": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1024",
+        "ToPort": "65535",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress101": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1024",
+        "ToPort": "65535",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress102": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress103": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "172.25.2.0/24"
+      }
+    },
+    "ingress104": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress105": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress106": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "81",
+        "ToPort": "81",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress107": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "10933",
+        "ToPort": "10933",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress108": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "10933",
+        "ToPort": "10933",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress109": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "82",
+        "ToPort": "82",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress110": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "42",
+        "ToPort": "42",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress111": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8082",
+        "ToPort": "8082",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress112": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8082",
+        "ToPort": "8082",
+        "CidrIp": "192.168.0.0/16"
+      }
+    },
+    "ingress113": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3228",
+        "ToPort": "3228",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress114": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3228",
+        "ToPort": "3228",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress115": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "53",
+        "ToPort": "53",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress116": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress117": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "172.25.2.0/24"
+      }
+    },
+    "ingress118": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "172.25.6.0/24"
+      }
+    },
+    "ingress119": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "172.25.8.0/24"
+      }
+    },
+    "ingress120": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress121": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress122": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress123": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress124": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress125": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress126": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress127": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "21",
+        "ToPort": "21",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress128": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "21",
+        "ToPort": "21",
+        "CidrIp": "85.17.68.234/32"
+      }
+    },
+    "ingress129": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "25",
+        "ToPort": "25",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress130": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "25",
+        "ToPort": "25",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress131": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "135",
+        "ToPort": "135",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress132": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "135",
+        "ToPort": "135",
+        "CidrIp": "172.25.0.0/16"
+      }
+    },
+    "ingress133": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "53",
+        "ToPort": "53",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress134": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress135": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress136": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "81",
+        "ToPort": "81",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress137": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "81",
+        "ToPort": "81",
+        "CidrIp": "172.0.0.0/16"
+      }
+    },
+    "ingress138": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "81",
+        "ToPort": "81",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress139": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress140": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "82",
+        "ToPort": "82",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress141": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "82",
+        "ToPort": "82",
+        "CidrIp": "172.0.0.0/16"
+      }
+    },
+    "ingress142": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "82",
+        "ToPort": "82",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress143": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8080",
+        "ToPort": "8080",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress144": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8080",
+        "ToPort": "8080",
+        "CidrIp": "172.25.0.0/16"
+      }
+    },
+    "ingress145": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8080",
+        "ToPort": "8080",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress146": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8082",
+        "ToPort": "8082",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress147": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "8082",
+        "ToPort": "8082",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress148": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress1": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAppSG"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress2": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgConnectSG"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress3": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgDBSG"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress4": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgNATSG"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress5": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebSG"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    }
+  },
+  "Description": "C33SGBackup"
+}
