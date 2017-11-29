@@ -1,0 +1,122 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "dopt341c8653": {
+      "Type": "AWS::EC2::DHCPOptions",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "test.sigue.local"
+          }
+        ],
+        "DomainName": "test.sigue.local",
+        "DomainNameServers": [
+          "10.65.54.40",
+          "10.65.54.41"
+        ]
+      }
+    },
+    "dopta627eec3": {
+      "Type": "AWS::EC2::DHCPOptions",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "dev.sigue.local"
+          }
+        ],
+        "DomainName": "dev.sigue.local",
+        "DomainNameServers": [
+          "10.65.52.40",
+          "10.65.52.41"
+        ]
+      }
+    },
+    "dopt8def17e8": {
+      "Type": "AWS::EC2::DHCPOptions",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Sigue.Local"
+          }
+        ],
+        "DomainName": "sigue.local",
+        "DomainNameServers": [
+          "10.1.100.29",
+          "10.1.100.26"
+        ],
+        "NtpServers": [
+          "10.1.100.29",
+          "10.1.100.26"
+        ]
+      }
+    },
+    "dopt33482c54": {
+      "Type": "AWS::EC2::DHCPOptions",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "cmtmoney.com"
+          }
+        ],
+        "DomainName": "cmtmoney.com",
+        "DomainNameServers": [
+          "10.65.66.160",
+          "10.129.62.60"
+        ]
+      }
+    },
+    "dopt1c67ae79": {
+      "Type": "AWS::EC2::DHCPOptions",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "sigue.local"
+          }
+        ],
+        "DomainName": "sigue.local",
+        "DomainNameServers": [
+          "10.1.100.29",
+          "10.1.100.26"
+        ]
+      }
+    },
+    "dopt0be3ef6c": {
+      "Type": "AWS::EC2::DHCPOptions",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "test.sigue.local"
+          }
+        ],
+        "DomainName": "test.sigue.local",
+        "DomainNameServers": [
+          "10.1.100.29",
+          "10.1.100.26",
+          "10.21.128.10"
+        ]
+      }
+    },
+    "dopt3d25dc58": {
+      "Type": "AWS::EC2::DHCPOptions",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Amazon DNS"
+          }
+        ],
+        "DomainName": "ec2.internal",
+        "DomainNameServers": [
+          "AmazonProvidedDNS"
+        ]
+      }
+    }
+  },
+  "Description": "DHCP Option Sets"
+}

@@ -1,0 +1,200 @@
+{
+  "Description" : "CloudFormation template to configure target account - creates Kinesis Firehose stream, S3 bucket, CloudWatch destination, and IAM roles and policies",
+  "Parameters" : {
+    "paramDestinationPolicy": {
+      "Description": "CloudWatch Destination Policy",
+      "Type": "String",
+      "Default": "{\"Version\" : \"2012-10-17\",\"Statement\" : [{\"Effect\" : \"Allow\", \"Principal\" : {\"AWS\" : \"123456789012\"},
+              \"Action\" : \"logs:PutSubscriptionFilter\", \"Resource\" :\"arn:aws:logs:eu-west-1:123456789012:destination:VPCFlowLogsDestination\"
+                          }]}"
+    },
+  },
+  "Resources" : {
+    "S3AllowWrite": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "S3AllowWrite",
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                        "s3:AbortMultipartUpload",
+                        "s3:GetBucketLocation",
+                        "s3:GetObject",
+                        "s3:ListBucket",
+                        "s3:ListBucketMultipartUploads",
+                        "s3:PutObject" ],
+              "Resource": [{
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:aws:s3:::",
+                    {
+                      "Ref": "CentralS3Bucket"
+                    }
+                  ]
+                ]
+              },
+              {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:aws:s3:::",
+                    {
+                      "Ref": "CentralS3Bucket"
+                    },
+                    "/*"
+                  ]
+                ]
+              }]
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "KinesisFirehoseRole"
+          }
+        ]
+      }
+    },
+    "KinesisAllowFirehose": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "KinesisAllowFirehose",
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect":"Allow",
+              "Action":["firehose:*"],
+              "Resource":[{
+                     "Fn::Join": [
+                            "",
+                              [
+                                "arn:aws:firehose:", {"Ref": "AWS::Region"},":", {"Ref": "AWS::AccountId"},":*"
+                              ]
+                                  ]
+                          }]
+            },
+            {
+              "Effect":"Allow",
+              "Action":["iam:PassRole"],
+              "Resource":[{
+                     "Fn::Join": [
+                            "",
+                              [
+                                "arn:aws:iam::", {"Ref": "AWS::AccountId"},":role/",{"Ref": "CloudWatchRole"}
+                              ]
+                                  ]
+                          }]
+            }]
+          },
+          "Roles": [{"Ref": "CloudWatchRole"}]
+        }
+   },
+  "KinesisFirehoseRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "Path": "/",
+        "RoleName": "KinesisFirehoseRole",
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": {
+            "Effect": "Allow",
+            "Principal": { "Service": "firehose.amazonaws.com" },
+            "Action": "sts:AssumeRole"
+          }
+        }
+      }
+    },
+    "CloudWatchRole": {
+        "Type": "AWS::IAM::Role",
+        "Properties": {
+          "Path": "/",
+          "RoleName": "CloudWatchRole",
+          "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": {
+              "Effect": "Allow",
+              "Principal": { "Service": {"Fn::Join": [
+                     "",
+                       [
+                         "logs.", {"Ref": "AWS::Region"}, ".amazonaws.com"
+                       ]
+                           ] }
+                         },
+              "Action": "sts:AssumeRole"
+              } } }
+            },
+  "CentralS3Bucket": {
+  "Type": "AWS::S3::Bucket",
+  "Properties": {
+    "BucketName": {   "Fn::Join": [
+           "",
+             [
+               "central-cloudwatchlogs-", {"Ref": "AWS::AccountId"}
+             ]
+            ]
+    }
+  }
+},
+"KinesisDeliveryStream": {
+  "Type": "AWS::KinesisFirehose::DeliveryStream",
+  "Properties": {
+    "DeliveryStreamName" : "CloudWatchLogsStream",
+    "S3DestinationConfiguration": {
+    "BucketARN" : {
+         "Fn::Join": [
+                "",
+                  [
+                    "arn:aws:s3:::",{"Ref": "CentralS3Bucket"}
+                  ]
+                      ]
+              },
+  "BufferingHints" :
+     {
+       "IntervalInSeconds" : 300,
+       "SizeInMBs" : 10
+    },
+  "CompressionFormat" : "UNCOMPRESSED",
+  "Prefix" : "firehose",
+  "RoleARN" : {"Fn::GetAtt" : ["KinesisFirehoseRole", "Arn"]}
+    }
+  }
+},
+"VPCFlowLogsDestination" : {
+  "Type" : "AWS::Logs::Destination",
+  "Properties" : {
+    "DestinationName": "VPCFlowLogsDestination",
+    "RoleArn": {
+         "Fn::Join": [
+                "",
+                  [
+                    "arn:aws:iam::",{"Ref": "AWS::AccountId"},":role/",{"Ref": "CloudWatchRole"}
+                  ]
+                      ]
+              },
+    "TargetArn": {
+           "Fn::Join": [
+                  "",
+                    [
+                      "arn:aws:firehose:", {"Ref": "AWS::Region"},":", {"Ref": "AWS::AccountId"},":deliverystream/",{"Ref":"KinesisDeliveryStream"}
+                    ]
+                        ]
+                },
+    "DestinationPolicy": {"Ref": "paramDestinationPolicy"}
+              }
+            }
+},
+"Outputs": {
+    "oKinesisFirehoseStream": {
+      "Description": "Kinesis Stream",
+      "Value": { "Ref" : "KinesisDeliveryStream"},
+      "Export": {
+        "Name": "eKinesisDeliveryStream"
+      }
+    }
+  }
+}

@@ -1,0 +1,1770 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "vpcb9e360dc": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "172.25.48.0/20",
+        "InstanceTenancy": "default",
+        "EnableDnsSupport": "true",
+        "EnableDnsHostnames": "false",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "SigueC32VPC"
+          }
+        ]
+      }
+    },
+    "subnetf35b2d96": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.58.0/24",
+        "AvailabilityZone": "us-west-1b",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s10DB"
+          }
+        ]
+      }
+    },
+    "subnet4d3e9414": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.52.0/24",
+        "AvailabilityZone": "us-west-1a",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s2DB"
+          }
+        ]
+      }
+    },
+    "subnetff3993a6": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.48.0/24",
+        "AvailabilityZone": "us-west-1a",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s8App"
+          }
+        ]
+      }
+    },
+    "subnet473e941e": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.53.0/24",
+        "AvailabilityZone": "us-west-1a",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s3App"
+          }
+        ]
+      }
+    },
+    "subnet7dccb918": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.51.0/24",
+        "AvailabilityZone": "us-west-1b",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s1DB"
+          }
+        ]
+      }
+    },
+    "subnetd347f08a": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.59.0/24",
+        "AvailabilityZone": "us-west-1a",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s11web"
+          }
+        ]
+      }
+    },
+    "subnet11364274": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.57.0/24",
+        "AvailabilityZone": "us-west-1b",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s7Web"
+          }
+        ]
+      }
+    },
+    "subnet72364217": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.54.0/24",
+        "AvailabilityZone": "us-west-1b",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s4Web"
+          }
+        ]
+      }
+    },
+    "subnet9b3993c2": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.49.0/24",
+        "AvailabilityZone": "us-west-1a",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s9DB"
+          }
+        ]
+      }
+    },
+    "subnetfe406b9b": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.60.0/24",
+        "AvailabilityZone": "us-west-1b",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s9App"
+          }
+        ]
+      }
+    },
+    "subnet89cdb8ec": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.50.0/24",
+        "AvailabilityZone": "us-west-1b",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s0Web"
+          }
+        ]
+      }
+    },
+    "subnet86369cdf": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.56.0/24",
+        "AvailabilityZone": "us-west-1a",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s6App"
+          }
+        ]
+      }
+    },
+    "subnetc1369c98": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "172.25.55.0/24",
+        "AvailabilityZone": "us-west-1a",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "s5DB"
+          }
+        ]
+      }
+    },
+    "igwdb845bbe": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "C32IG"
+          }
+        ]
+      }
+    },
+    "vgw3938647c": {
+      "Type": "AWS::EC2::VPNGateway",
+      "Properties": {
+        "Type": "ipsec.1",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "C32ATT"
+          }
+        ]
+      }
+    },
+    "dopt400ff225": {
+      "Type": "AWS::EC2::DHCPOptions",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "sigue.local"
+          }
+        ],
+        "DomainName": "sigue.local",
+        "DomainNameServers": [
+          "10.1.100.29",
+          "10.1.100.26"
+        ]
+      }
+    },
+    "vpne5e976bd": {
+      "Type": "AWS::EC2::VPNConnection",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "London Office to US"
+          }
+        ],
+        "Type": "ipsec.1",
+        "StaticRoutesOnly": "true",
+        "VpnGatewayId": {
+          "Ref": "vgw3938647c"
+        },
+        "CustomerGatewayId": "cgw-f1e8b4b4"
+      }
+    },
+    "acl23c35546": {
+      "Type": "AWS::EC2::NetworkAcl",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "DefaultACL"
+          }
+        ]
+      }
+    },
+    "rtb793ba81c": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "C32PrimaryRoute"
+          }
+        ]
+      }
+    },
+    "rtbc021b2a5": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "C32NATRouter"
+          }
+        ]
+      }
+    },
+    "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AppSG",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "name",
+            "Value": "AwsC32SGcfTemplate"
+          },
+          {
+            "Key": "type",
+            "Value": "cf"
+          },
+          {
+            "Key": "Name",
+            "Value": "AppSG"
+          }
+        ]
+      }
+    },
+    "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "ConnectSG",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "name",
+            "Value": "AwsC32SGcfTemplate"
+          },
+          {
+            "Key": "Name",
+            "Value": "ConnectSG"
+          },
+          {
+            "Key": "type",
+            "Value": "cf"
+          }
+        ]
+      }
+    },
+    "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "DBSG",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "DBSG"
+          },
+          {
+            "Key": "name",
+            "Value": "AwsC32SGcfTemplate"
+          },
+          {
+            "Key": "type",
+            "Value": "cf"
+          }
+        ]
+      }
+    },
+    "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "NATSG",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "type",
+            "Value": "cf"
+          },
+          {
+            "Key": "Name",
+            "Value": "NATSG"
+          },
+          {
+            "Key": "name",
+            "Value": "AwsC32SGcfTemplate"
+          }
+        ]
+      }
+    },
+    "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "WebSG",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "type",
+            "Value": "cf"
+          },
+          {
+            "Key": "name",
+            "Value": "AwsC32SGcfTemplate"
+          },
+          {
+            "Key": "Name",
+            "Value": "WebSG"
+          }
+        ]
+      }
+    },
+    "sgAwsC32SGcfTemplatesgNATSGGJ3X0JAM42QZ": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "NATSG",
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "Tags": [
+          {
+            "Key": "type",
+            "Value": "cf"
+          },
+          {
+            "Key": "name",
+            "Value": "AwsC32SGcfTemplate"
+          },
+          {
+            "Key": "Name",
+            "Value": "NATSG"
+          }
+        ]
+      }
+    },
+    "acl1": {
+      "Type": "AWS::EC2::NetworkAclEntry",
+      "Properties": {
+        "CidrBlock": "0.0.0.0/0",
+        "Egress": "true",
+        "Protocol": "-1",
+        "RuleAction": "allow",
+        "RuleNumber": "100",
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        }
+      }
+    },
+    "acl2": {
+      "Type": "AWS::EC2::NetworkAclEntry",
+      "Properties": {
+        "CidrBlock": "0.0.0.0/0",
+        "Protocol": "-1",
+        "RuleAction": "allow",
+        "RuleNumber": "100",
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        }
+      }
+    },
+    "subnetacl1": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnet86369cdf"
+        }
+      }
+    },
+    "subnetacl2": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnet9b3993c2"
+        }
+      }
+    },
+    "subnetacl3": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnet89cdb8ec"
+        }
+      }
+    },
+    "subnetacl4": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnetd347f08a"
+        }
+      }
+    },
+    "subnetacl5": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnetfe406b9b"
+        }
+      }
+    },
+    "subnetacl6": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnetff3993a6"
+        }
+      }
+    },
+    "subnetacl7": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnet4d3e9414"
+        }
+      }
+    },
+    "subnetacl8": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnet473e941e"
+        }
+      }
+    },
+    "subnetacl9": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnet72364217"
+        }
+      }
+    },
+    "subnetacl10": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnetf35b2d96"
+        }
+      }
+    },
+    "subnetacl11": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnet7dccb918"
+        }
+      }
+    },
+    "subnetacl12": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnet11364274"
+        }
+      }
+    },
+    "subnetacl13": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acl23c35546"
+        },
+        "SubnetId": {
+          "Ref": "subnetc1369c98"
+        }
+      }
+    },
+    "gw1": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "InternetGatewayId": {
+          "Ref": "igwdb845bbe"
+        }
+      }
+    },
+    "gw2": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "VpnGatewayId": {
+          "Ref": "vgw3938647c"
+        }
+      }
+    },
+    "subnetroute2": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "rtbc021b2a5"
+        },
+        "SubnetId": {
+          "Ref": "subnet11364274"
+        }
+      }
+    },
+    "subnetroute3": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "rtbc021b2a5"
+        },
+        "SubnetId": {
+          "Ref": "subnet72364217"
+        }
+      }
+    },
+    "subnetroute4": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "rtbc021b2a5"
+        },
+        "SubnetId": {
+          "Ref": "subnet89cdb8ec"
+        }
+      }
+    },
+    "route1": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "172.16.0.0/12",
+        "RouteTableId": {
+          "Ref": "rtb793ba81c"
+        },
+        "GatewayId": {
+          "Ref": "vgw3938647c"
+        }
+      },
+      "DependsOn": "gw2"
+    },
+    "route2": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "10.0.0.0/8",
+        "RouteTableId": {
+          "Ref": "rtb793ba81c"
+        },
+        "GatewayId": {
+          "Ref": "vgw3938647c"
+        }
+      },
+      "DependsOn": "gw2"
+    },
+    "route3": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "RouteTableId": {
+          "Ref": "rtb793ba81c"
+        }
+      }
+    },
+    "route4": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "RouteTableId": {
+          "Ref": "rtbc021b2a5"
+        },
+        "GatewayId": {
+          "Ref": "igwdb845bbe"
+        }
+      },
+      "DependsOn": "gw1"
+    },
+    "dchpassoc1": {
+      "Type": "AWS::EC2::VPCDHCPOptionsAssociation",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcb9e360dc"
+        },
+        "DhcpOptionsId": {
+          "Ref": "dopt400ff225"
+        }
+      }
+    },
+    "ingress1": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress2": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress3": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress4": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress5": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress6": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "192.168.0.0/16"
+      }
+    },
+    "ingress7": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1494",
+        "ToPort": "1494",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress8": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1494",
+        "ToPort": "1494",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress9": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1494",
+        "ToPort": "1494",
+        "CidrIp": "192.168.0.0/16"
+      }
+    },
+    "ingress10": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "53",
+        "ToPort": "53",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress11": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "389",
+        "ToPort": "389",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress12": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress13": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress14": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress15": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "445",
+        "ToPort": "445",
+        "CidrIp": "10.13.128.136/32"
+      }
+    },
+    "ingress16": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "445",
+        "ToPort": "445",
+        "CidrIp": "172.25.58.251/32"
+      }
+    },
+    "ingress17": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress18": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress19": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress20": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "25",
+        "ToPort": "25",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress21": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "53",
+        "ToPort": "53",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress22": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress23": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "2598",
+        "ToPort": "2598",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress24": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "2598",
+        "ToPort": "2598",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress25": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "2598",
+        "ToPort": "2598",
+        "CidrIp": "192.168.0.0/16"
+      }
+    },
+    "ingress26": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "0",
+        "ToPort": "-1",
+        "CidrIp": "75.23.178.131/32"
+      }
+    },
+    "ingress27": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "75.23.178.131/32"
+      }
+    },
+    "ingress28": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress29": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress30": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress31": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress32": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress33": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress34": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "445",
+        "ToPort": "445",
+        "CidrIp": "172.25.52.246/32"
+      }
+    },
+    "ingress35": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "445",
+        "ToPort": "445",
+        "CidrIp": "10.13.128.203/32"
+      }
+    },
+    "ingress36": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress37": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress38": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "172.16.0.0/12"
+      }
+    },
+    "ingress39": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress40": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress41": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.64.0.0/19"
+      }
+    },
+    "ingress42": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.129.0.0/16"
+      }
+    },
+    "ingress43": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.1.96.0/19"
+      }
+    },
+    "ingress44": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress45": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.65.0.0/19"
+      }
+    },
+    "ingress46": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "172.20.101.0/24"
+      }
+    },
+    "ingress47": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "53",
+        "ToPort": "53",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress48": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "53",
+        "ToPort": "53",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress49": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "10.129.0.0/16"
+      }
+    },
+    "ingress50": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "SourceSecurityGroupOwnerId": "765032730250"
+      }
+    },
+    "ingress51": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "172.20.101.0/24"
+      }
+    },
+    "ingress52": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "10.129.0.0/16"
+      }
+    },
+    "ingress53": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress54": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress55": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "445",
+        "ToPort": "445",
+        "CidrIp": "172.25.52.246/32"
+      }
+    },
+    "ingress56": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "10.129.0.0/16"
+      }
+    },
+    "ingress57": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress58": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1433",
+        "ToPort": "1433",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress59": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress60": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "172.25.2.0/24"
+      }
+    },
+    "ingress61": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress62": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "42",
+        "ToPort": "42",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress63": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "53",
+        "ToPort": "53",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress64": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "53",
+        "ToPort": "53",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress65": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress66": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress67": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress68": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1434",
+        "ToPort": "1434",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress69": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "172.25.0.0/19"
+      }
+    },
+    "ingress70": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "172.25.2.0/24"
+      }
+    },
+    "ingress71": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "172.0.0.0/8"
+      }
+    },
+    "ingress72": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "10.0.0.0/8"
+      }
+    },
+    "ingress73": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "75.23.178.131/32"
+      }
+    },
+    "ingress74": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": "192.0.0.0/8"
+      }
+    },
+    "ingress75": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress76": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress1": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateAppSGPUODXQ27HHBPKP16ZAOEK6ZI"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress2": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateConnectSG3DU8ZCN7LLZ21KGTX8J2FP2M4"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress3": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateDBSGJYYEZIQNG5GYK8D75R2H9ILK"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress4": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateNATSGM4CSCOMQG9O61VSE79VUS28EF"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress5": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgAwsC32SGcfTemplateWebSGZRB7U1TC95J8N7G5CFWCXKR4"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress6": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAwsC32SGcfTemplatesgNATSGGJ3X0JAM42QZ"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "croute1": {
+      "Type": "AWS::EC2::VPNConnectionRoute",
+      "Properties": {
+        "VpnConnectionId": {
+          "Ref": "vpne5e976bd"
+        },
+        "DestinationCidrBlock": "10.68.0.0/14"
+      }
+    }
+  },
+  "Description": "VPC with Nat Gateway Template "
+}

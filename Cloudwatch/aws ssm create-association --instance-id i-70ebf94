@@ -1,0 +1,10 @@
+aws ssm create-association --instance-id i-70ebf941 --name "aws_windows_config"
+
+
+
+aws ssm create-document --content file:///Users/gabrielsandoval/Documents/AWS/Cloud\ Formation/Cloudwatch/AWS.EC2.Windows.CloudWatch2-US-West-2.json --name "us-west-2-config"
+
+OUTPUT:
+-------
+DOCUMENTDESCRIPTION	1476830225.27	Example CloudWatch Logs tasks	us-west-2-config	Creating
+PLATFORMTYPES	Windows
