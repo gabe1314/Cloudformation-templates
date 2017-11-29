@@ -1,70 +1,70 @@
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
-  dopt341c8653:
+  dopt######:
     Type: 'AWS::EC2::DHCPOptions'
     Properties:
       Tags:
         - Key: Name
-          Value: test.sigue.local
-      DomainName: test.sigue.local
+          Value: test.local
+      DomainName: test.local
       DomainNameServers:
-        - 10.65.54.40
-        - 10.65.54.41
-  dopta627eec3:
+        - 10.65.5.4
+        - 10.65.5.1
+  dop########:
     Type: 'AWS::EC2::DHCPOptions'
     Properties:
       Tags:
         - Key: Name
-          Value: dev.sigue.local
-      DomainName: dev.sigue.local
+          Value: dev.local
+      DomainName: dev.local
       DomainNameServers:
-        - 10.65.52.40
-        - 10.65.52.41
-  dopt8def17e8:
+        - 10.65.5.4
+        - 10.65.5.1
+  dopt######:
     Type: 'AWS::EC2::DHCPOptions'
     Properties:
       Tags:
         - Key: Name
-          Value: Sigue.Local
-      DomainName: sigue.local
+          Value: Domain.Local
+      DomainName: domain.local
       DomainNameServers:
-        - 10.1.100.29
-        - 10.1.100.26
+        - 10.1.1.9
+        - 10.1.1.6
       NtpServers:
-        - 10.1.100.29
-        - 10.1.100.26
-  dopt33482c54:
+        - 10.1.1.9
+        - 10.1.1.6
+  dopt####:
     Type: 'AWS::EC2::DHCPOptions'
     Properties:
       Tags:
         - Key: Name
-          Value: cmtmoney.com
-      DomainName: cmtmoney.com
+          Value: money.com
+      DomainName: money.com
       DomainNameServers:
-        - 10.65.66.160
-        - 10.129.62.60
-  dopt1c67ae79:
+        - 10.6.6.1
+        - 10.1.2.6
+  dopt###:
     Type: 'AWS::EC2::DHCPOptions'
     Properties:
       Tags:
         - Key: Name
-          Value: sigue.local
-      DomainName: sigue.local
+          Value: domain.local
+      DomainName: domain.local
       DomainNameServers:
-        - 10.1.100.29
-        - 10.1.100.26
-  dopt0be3ef6c:
+        - 10.1.1.9
+        - 10.1.1.6
+  dopt#####:
     Type: 'AWS::EC2::DHCPOptions'
     Properties:
       Tags:
         - Key: Name
-          Value: test.sigue.local
-      DomainName: test.sigue.local
+          Value: test.local
+      DomainName: test.local
       DomainNameServers:
-        - 10.1.100.29
-        - 10.1.100.26
-        - 10.21.128.10
-  dopt3d25dc58:
+        - 10.1.1.29
+        - 10.1.1.26
+        - 10.21.1.10
+  dopt3####:
     Type: 'AWS::EC2::DHCPOptions'
     Properties:
       Tags:
